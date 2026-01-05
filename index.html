@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nikita Sapianyk | Front-End Developer</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav>
+        <strong>Nikita</strong>
+        <div>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="hero" id="about">
+        <div>
+            <h1>Hi, I'm <span>Nikita</span><br>Front-End Developer</h1>
+            <p>Front-end Developer with 3 years of experience in building modern and responsive websites. Skilled in
+                HTML, CSS, and JavaScript, with a strong focus on clean code and user-friendly interfaces. Highly
+                motivated, fast learner, and eager to grow professionally.</p>
+            <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View
+                Projects</button>
+        </div>
+        <img src="./my_photo.png" alt="Nikita Sapianyk">
+    </div>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS / SCSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Figma</div>
+            <div class="skill">Git / GitHub</div>
+            <div class="skill">UI / UX</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>WebStudio</h3>
+                <a href="https://nikitasapianyk.github.io/webstudio2.0/" style="text-decoration-color: var(--accent);">
+                    <p>Link</p>
+                </a>
+            </div>
+            <div class="project">
+                <h3>CtrlStore - Demo</h3>
+                <a href="https://nikitasapianyk.github.io/ctrl_store/" style="text-decoration-color: var(--accent);">
+                    <p>Link</p>
+                </a>
+            </div>
+            <div class="project">
+                <h3>Headphones</h3>
+               <a href="https://nikitasapianyk.github.io/ctrl_store/" style="text-decoration-color: var(--accent);">
+                    <p>Link</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: nikita.sapianyk@gmail.com<br>Phone: +48 722 756 185</p>
+    </section>
+
+    <footer>
+       Nikita Sapianyk · Front-End Developer
+    </footer>
+
+</body>
+
+</html>
