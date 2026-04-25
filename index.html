@@ -1,102 +1,1052 @@
 <!DOCTYPE html>
-<html lang="uk">
-
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nikita Sapianyk | Front-End Developer</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nikita Sapianyk — Front-End Developer. Modern, responsive, and high-converting interfaces built with clean code and attention to detail." />
+  <title>Nikita Sapianyk | Front-End Developer</title>
 
+  <!-- Modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================
+       Base / Theme Variables
+    ========================== */
+    :root {
+      --bg: #0b0f19;
+      --bg-elevated: rgba(255, 255, 255, 0.04);
+      --bg-elevated-2: rgba(255, 255, 255, 0.06);
+      --text: #e8ecf7;
+      --text-muted: #a8b0c2;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #8b5cf6;
+      --accent-2: #22c55e;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --container: 1180px;
+      --transition: 220ms ease;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f7f8fc;
+      --bg-elevated: rgba(255, 255, 255, 0.72);
+      --bg-elevated-2: rgba(255, 255, 255, 0.88);
+      --text: #101322;
+      --text-muted: #5b6375;
+      --border: rgba(16, 19, 34, 0.10);
+      --shadow: 0 18px 50px rgba(16, 19, 34, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.9;
+    }
+
+    h1, h2, h3, h4, p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      line-height: 1.25;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--bg-elevated-2), var(--bg-elevated));
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform var(--transition), background var(--transition), border-color var(--transition), opacity var(--transition);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #6d28d9);
+      color: white;
+      box-shadow: 0 16px 30px rgba(139, 92, 246, 0.24);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* =========================
+       Header / Navigation
+    ========================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(10, 13, 22, 0.55);
+      border-bottom: 1px solid var(--border);
+    }
+
+    html[data-theme="light"] .header {
+      background: rgba(247, 248, 252, 0.72);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(139, 92, 246, 0.28);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 22px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* =========================
+       Hero
+    ========================== */
+    .hero {
+      padding: 64px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 22px;
+    }
+
+    .lead {
+      max-width: 60ch;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: -30% auto auto -20%;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.24), transparent 70%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: calc(var(--radius-xl) - 6px);
+      border: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .floating-card {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(10, 13, 22, 0.72);
+      backdrop-filter: blur(14px);
+      max-width: 240px;
+    }
+
+    html[data-theme="light"] .floating-card {
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .floating-card strong {
+      display: block;
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .floating-card span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* =========================
+       Section Grids
+    ========================== */
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      gap: 18px;
+    }
+
+    /* =========================
+       Skills
+    ========================== */
+    .skill-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139, 92, 246, 0.35);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .skill-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .skill-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      margin: 12px 0 14px;
+    }
+
+    .skill-bar > span {
+      display: block;
+      height: 100%;
+      width: var(--level);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), #0ea5e9);
+      box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* =========================
+       Projects
+    ========================== */
+    .project-card {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      transition: transform var(--transition), border-color var(--transition);
+      min-height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(139, 92, 246, 0.30);
+    }
+
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      width: fit-content;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.95), rgba(14, 165, 233, 0.85));
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .link-pill:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* =========================
+       Certificates
+    ========================== */
+    .cert-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.30);
+    }
+
+    .cert-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .cert-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 16px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       Contact
+    ========================== */
+    .contact-card {
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent 35%),
+        rgba(255, 255, 255, 0.03);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .social {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .social:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* =========================
+       Footer
+    ========================== */
+    footer {
+      padding: 22px 0 32px;
+      color: var(--text-muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    /* =========================
+       Reveal Animations
+    ========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       Responsive
+    ========================== */
+    @media (min-width: 760px) {
+      .nav-links {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-top: 84px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 36px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .contact-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Sticky glass navigation -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Go to top">
+        <span class="brand-mark">N</span>
+        <span>Nikita Sapianyk</span>
+      </a>
 
-    <nav>
-        <strong>Nikita</strong>
-        <div>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            <a href="#Сertificates"> Сertificates</a>
-        </div>
-    </nav>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-    <div class="hero" id="about">
-        <div>
-            <h1>Hi, I'm <span>Nikita</span><br>Front-End Developer</h1>
-            <p>Front-end Developer with 3 years of experience in building modern and responsive websites. Skilled in
-                HTML, CSS, and JavaScript, with a strong focus on clean code and user-friendly interfaces. Highly
-                motivated, fast learner, and eager to grow professionally.</p>
-            <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View
-                Projects</button>
-        </div>
-        <img src="./my_photo.png" alt="Nikita Sapianyk">
+      <div class="nav-actions">
+        <!-- Dark / light theme toggle -->
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">◐</button>
+      </div>
     </div>
+  </header>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS / SCSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Figma</div>
-            <div class="skill">Git / GitHub</div>
-            <div class="skill">UI / UX</div>
+  <main id="home">
+    <!-- Hero -->
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Front-End Developer</span>
+          <h2>Hi, I'm Nikita
+Front-End Developer. I create websites that feel polished, that feel fast, clear, and premium.</h2>
+          <p class="lead" id="about">
+            I am Nikita Sapianyk, a Front-End Developer with 3 years of experience creating responsive, user-focused
+            websites. I combine clean code, thoughtful UI, and modern interaction design to deliver products that look
+            strong and perform well.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="pill">Responsive UI</span>
+            <span class="pill">Clean Architecture</span>
+            <span class="pill">Modern Animations</span>
+          </div>
         </div>
-    </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>WebStudio</h3>
-                <a href="https://nikitasapianyk.github.io/webstudio2.0/" style="text-decoration-color: var(--accent);">
-                    <p>Link</p>
-                </a>
-            </div>
-            <div class="project">
-                <h3>CtrlStore - Demo</h3>
-                <a href="https://nikitasapianyk.github.io/ctrl_store/" style="text-decoration-color: var(--accent);">
-                    <p>Link</p>
-                </a>
-            </div>
-            <div class="project">
-                <h3>Headphones</h3>
-                <a href="https://nikitasapianyk.github.io/headphones/" style="text-decoration-color: var(--accent);">
-                    <p>Link</p>
-                </a>
-            </div>
+        <div class="hero-visual card reveal">
+          <!-- Replace with your image path -->
+          <img class="portrait" src="./my_photo.png" alt="Portrait of Nikita Sapianyk" />
+
+          
         </div>
+      </div>
     </section>
 
-    <section id="Сertificates">
-        <h2>Сertificates</h2>
-        <a href="https://drive.google.com/file/d/1dxPm-PSxF3YoSTxdFANsw9QSWZFr_hGC/view?usp=sharing"
-            class="p_Сertificates">
-            <p>Html, Css 2023-2024</p>
-        </a>
-        <a href="https://drive.google.com/file/d/1RYgz2doDHmT7nI_7mUXsP9bfFPApCoU1/view?usp=sharing"
-            class="p_Сertificates">
-            <p>JavaScript 2024-2025</p>
-        </a>
-
-
-
+    <!-- Stats -->
+    <section class="section">
+      <div class="container stats reveal">
+        <div class="stat card">
+          <strong>3+</strong>
+          <span>Years of hands-on experience</span>
+        </div>
+        <div class="stat card">
+          <strong>6+</strong>
+          <span>Core tools and technologies</span>
+        </div>
+        <div class="stat card">
+          <strong>3</strong>
+          <span>Highlighted portfolio projects</span>
+        </div>
+        <div class="stat card">
+          <strong>2</strong>
+          <span>Professional certificates</span>
+        </div>
+      </div>
     </section>
 
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Skills</span>
+          <h2>Technical strengths that support clean, production-ready interfaces.</h2>
+        </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: nikita.sapianyk@gmail.com<br>Phone: +48 722 756 185</p>
+        <div class="grid-3">
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Core Front-End</h3>
+              <span class="muted">Strong</span>
+            </div>
+            <p class="muted">HTML5, CSS3/SCSS, responsive layouts, semantic markup, accessibility basics.</p>
+            <div class="skill-bar" aria-hidden="true"><span style="--level: 92%"></span></div>
+            <div class="skill-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">SCSS</span>
+              <span class="tag">REACT</span>
+              <span class="tag">Responsive Design</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>JavaScript & UI Logic</h3>
+              <span class="muted">Strong</span>
+            </div>
+            <p class="muted">Interactive UI behavior, smooth animations, DOM manipulation, component logic.</p>
+            <div class="skill-bar" aria-hidden="true"><span style="--level: 84%"></span></div>
+            <div class="skill-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Animations</span>
+              <span class="tag">DOM</span>
+              <span class="tag">UX Micro-interactions</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Workflow & Design</h3>
+              <span class="muted">Confident</span>
+            </div>
+            <p class="muted">Figma, Git/GitHub, UI/UX thinking, collaboration, and structured delivery.</p>
+            <div class="skill-bar" aria-hidden="true"><span style="--level: 78%"></span></div>
+            <div class="skill-tags">
+              <span class="tag">Figma</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">UI/UX</span>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        Nikita Sapianyk · Front-End Developer
-    </footer>
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Projects</span>
+          <h2>Projects that demonstrate my skills and the quality of the sites.</h2>
+        </div>
 
+        <div class="grid-3">
+          <article class="project-card reveal">
+            <span class="project-badge">Company website</span>
+            <div>
+              <h3>WebStudio</h3>
+              <p class="muted" style="margin-top: 10px;">
+                A clean corporate landing page with balanced hierarchy, smooth interactions, and a modern premium feel.
+              </p>
+            </div>
+            <div class="stack" aria-label="Technology stack">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Responsive Layout</span>
+            </div>
+            <div class="project-links">
+              <a class="link-pill" href="https://nikitasapianyk.github.io/webstudio2.0/" target="_blank" rel="noreferrer">Live Demo ↗</a>
+              <!-- Replace with your repository URL -->
+              
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <span class="project-badge">Online Store</span>
+            <div>
+              <h3>CtrlStore</h3>
+              <p class="muted" style="margin-top: 10px;">
+               A modern e-commerce platform for pharmaceutical products with clear structure and smooth user experience.
+              </p>
+            </div>
+            <div class="stack" aria-label="Technology stack">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Responsive Layout</span>
+            </div>
+            <div class="project-links">
+              <a class="link-pill" href="https://nikitasapianyk.github.io/ctrl_store/" target="_blank" rel="noreferrer">Live Demo ↗</a>
+              
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <span class="project-badge">Company website</span>
+            <div>
+              <h3>Pharma</h3>
+              <p class="muted" style="margin-top: 10px;">
+              A clean consulting website showcasing pharmaceutical expertise and strategic solutions.
+              </p>
+            </div>
+            <div class="stack" aria-label="Technology stack">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Responsive Layout</span>
+            </div>
+            <div class="project-links">
+              <a class="link-pill" href="https://www.ed-pharma.eu/" target="_blank" rel="noreferrer">Live Demo ↗</a>
+             
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="section" id="certificates">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Certificates</span>
+          <h2>Certificate of completion of studies</h2>
+        </div>
+
+        <div class="grid-2">
+          <article class="cert-card reveal">
+            <h3>HTML & CSS Professional Track</h3>
+            <p class="muted">
+              Structured training focused on semantic markup, responsive layouts, and modern styling practices.
+            </p>
+            <div class="cert-meta">
+              <span>2023–2024</span>
+              <a class="link-pill" href="https://drive.google.com/file/d/1dxPm-PSxF3YoSTxdFANsw9QSWZFr_hGC/view?usp=sharing" target="_blank" rel="noreferrer">View Certificate ↗</a>
+            </div>
+          </article>
+
+          <article class="cert-card reveal">
+            <h3>JavaScript Professional Track</h3>
+            <p class="muted">
+              Practical JavaScript learning centered on interactivity, logic, and building better user experiences.
+            </p>
+            <div class="cert-meta">
+              <span>2024–2025</span>
+              <a class="link-pill" href="https://drive.google.com/file/d/1RYgz2doDHmT7nI_7mUXsP9bfFPApCoU1/view?usp=sharing" target="_blank" rel="noreferrer">View Certificate ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-grid">
+            <div>
+              <span class="eyebrow">Contact</span>
+              <h2 style="margin-top: 10px;">Let’s build something sharp, modern, and effective.</h2>
+              <p class="muted" style="margin-top: 14px; max-width: 58ch;">
+                I am open to Front-End Developer opportunities, freelance collaborations, and product-focused web work.
+                The best way to reach me is by email or phone.
+              </p>
+
+              <div class="contact-actions" style="margin-top: 20px;">
+                <a class="btn btn-primary" href="mailto:nikita.sapianyk@gmail.com">Email Me</a>
+                <a class="btn btn-secondary" href="tel:+48722756185">Call Me</a>
+              </div>
+            </div>
+
+            <div>
+              <div class="skill-card" style="height: 100%;">
+                <h3>Direct contact</h3>
+                <p class="muted" style="margin-top: 8px;">Email</p>
+                <a class="link-pill" style="margin-top: 8px; display: inline-flex;" href="mailto:nikita.sapianyk@gmail.com">nikita.sapianyk@gmail.com</a>
+
+                <p class="muted" style="margin-top: 18px;">Phone</p>
+                <a class="link-pill" style="margin-top: 8px; display: inline-flex;" href="tel:+48722756185">+48 722 756 185</a>
+
+                <div class="socials" aria-label="Social links">
+                  <!-- Replace # with your real social URLs -->
+                  <a class="social" href="#" aria-label="GitHub">GitHub</a>
+                  <a class="social" href="#" aria-label="LinkedIn">LinkedIn</a>
+                  <a class="social" href="#" aria-label="Telegram">Telegram</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Nikita Sapianyk · Front-End Developer
+    </div>
+  </footer>
+
+  <script>
+    // ========================================
+    // Theme toggle with localStorage persistence
+    // ========================================
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      root.setAttribute("data-theme", savedTheme);
+    }
+
+    const getThemeIcon = () => root.getAttribute("data-theme") === "light" ? "☾" : "◐";
+    themeToggle.textContent = getThemeIcon();
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("theme", nextTheme);
+      themeToggle.textContent = getThemeIcon();
+    });
+
+    // ========================================
+    // Smooth scroll for anchor links
+    // ========================================
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href");
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // ========================================
+    // Reveal animations on scroll
+    // ========================================
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -60px 0px"
+    });
+
+    revealElements.forEach((el, index) => {
+      el.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
+      observer.observe(el);
+    });
+  </script>
 </body>
-
 </html>
-
