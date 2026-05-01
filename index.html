@@ -672,7 +672,7 @@
 </head>
 
 <body>
-  <!-- Sticky glass navigation -->
+  
   <header class="header">
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Go to top">
@@ -689,14 +689,12 @@
       </nav>
 
       <div class="nav-actions">
-        <!-- Dark / light theme toggle -->
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">◐</button>
       </div>
     </div>
   </header>
 
   <main id="home">
-    <!-- Hero -->
     <section class="hero section">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
@@ -722,7 +720,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
         </div>
 
         <div class="hero-visual card reveal">
-          <!-- Replace with your image path -->
+          
           <img class="portrait" src="./my_photo.png" alt="Portrait of Nikita Sapianyk" />
 
           
@@ -730,7 +728,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
       </div>
     </section>
 
-    <!-- Stats -->
+  
     <section class="section">
       <div class="container stats reveal">
         <div class="stat card">
@@ -752,7 +750,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
       </div>
     </section>
 
-    <!-- Skills -->
+    
     <section class="section" id="skills">
       <div class="container">
         <div class="section-heading reveal">
@@ -810,7 +808,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
       </div>
     </section>
 
-    <!-- Projects -->
+    
     <section class="section" id="projects">
       <div class="container">
         <div class="section-heading reveal">
@@ -836,7 +834,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
             </div>
             <div class="project-links">
               <a class="link-pill" href="https://nikitasapianyk.github.io/webstudio2.0/" target="_blank" rel="noreferrer">Live Demo ↗</a>
-              <!-- Replace with your repository URL -->
+            
               
             </div>
           </article>
@@ -886,7 +884,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
       </div>
     </section>
 
-    <!-- Certificates -->
+    
     <section class="section" id="certificates">
       <div class="container">
         <div class="section-heading reveal">
@@ -920,7 +918,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
       </div>
     </section>
 
-    <!-- Contact -->
+  
     <section class="section" id="contact">
       <div class="container">
         <div class="contact-card reveal">
@@ -949,7 +947,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
                 <a class="link-pill" style="margin-top: 8px; display: inline-flex;" href="tel:+48722756185">+48 722 756 185</a>
 
                 <div class="socials" aria-label="Social links">
-                  <!-- Replace # with your real social URLs -->
+                
                   <a class="social" href="https://github.com/NikitaSapianyk" aria-label="GitHub">GitHub</a>
                   <a class="social" href="#" aria-label="LinkedIn">LinkedIn</a>
                   <a class="social" href="https://t.me/skylone_tt" aria-label="Telegram">Telegram</a>
@@ -969,9 +967,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
   </footer>
 
   <script>
-    // ========================================
-    // Theme toggle with localStorage persistence
-    // ========================================
+    
     const root = document.documentElement;
     const themeToggle = document.getElementById("themeToggle");
 
@@ -990,9 +986,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
       themeToggle.textContent = getThemeIcon();
     });
 
-    // ========================================
-    // Smooth scroll for anchor links
-    // ========================================
+    
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener("click", (e) => {
         const targetId = link.getAttribute("href");
@@ -1003,9 +997,7 @@ Front-End Developer. I create websites that feel polished, that feel fast, clear
       });
     });
 
-    // ========================================
-    // Reveal animations on scroll
-    // ========================================
+    
     const revealElements = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver((entries) => {
